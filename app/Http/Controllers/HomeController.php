@@ -5,12 +5,13 @@ use App\Models\Buku;
 use App\Models\Anggota;
 use App\Models\Transaksi;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $jumlahBuku = Buku::count();
         $jumlahAnggota = Anggota::count();
-        $jumlahTransaksi = Transaksi::count(); // contoh tambahan
+        $jumlahTransaksi = Transaksi::count();
 
         return view('beranda', compact('jumlahBuku', 'jumlahAnggota', 'jumlahTransaksi'));
     }

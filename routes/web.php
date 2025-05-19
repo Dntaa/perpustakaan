@@ -30,12 +30,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Beranda
-Route::get('/', function () {
-    return view('auth.login');
-});
 Route::get('/beranda', function () {
-    return view('beranda');
-});
+    $jumlahBuku = Buku::count();
+    $jumlahAnggota = Anggota::count();
+    $jumlahTransaksi = Transaksi::count();
+
+    return view('beranda', compact('jumlahBuku', 'jumlahAnggota', 'jumlahTransaksi'));
+})->middleware('auth')->name('beranda');
 
 // Buku
 Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
