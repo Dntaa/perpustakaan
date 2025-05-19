@@ -23,55 +23,55 @@
             </a>
         </div>
 
-
-        <table class="min-w-full bg-white shadow-lg rounded-lg">
-            <thead>
-                <tr class="bg-blue-100 text-gray-700">
-                    <th class="border px-4 py-2">No</th>
-                    <th class="border px-4 py-2">ID Transaksi</th>
-                    <th class="border px-4 py-2">ID Anggota</th>
-                    <th class="border px-4 py-2">ID Buku</th>
-                    <th class="border px-4 py-2">Tanggal Peminjaman</th>
-                    <th class="border px-4 py-2">Tanggal Pengembalian</th>
-                    <th class="border px-4 py-2">Opsi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($transaksis as $index => $transaksi)
-                <tr class="border">
-                    <td class="border px-4 py-2 text-center">{{ $index + 1 }}</td>
-                    <td class="border px-4 py-2">{{ $transaksi->id }}</td>
-                    <td class="border px-4 py-2">{{ $transaksi->anggota_id }}</td>
-                    <td class="border px-4 py-2">{{ $transaksi->buku_id }}</td>
-                    <td class="border px-4 py-2">{{ $transaksi->tgl_pinjam }}</td>
-                    <td class="border px-4 py-2">{{ $transaksi->tgl_kembali }}</td>
-                    <td class="border px-4 py-2">
-                        <div class="flex justify-center gap-2">
-                            <!-- Tombol Edit -->
-                            <a href="/transaksi/{{ $transaksi->id }}/edit" 
-                            class="bg-yellow-400 text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition-all">
-                                Edit
-                            </a>
-                            <!-- Tombol Hapus -->
-                            <form action="/transaksi/{{ $transaksi->id }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?');">
-                                @csrf
-                                @method('DELETE')
-                                <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all">
-                                    Hapus
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="7" class="text-center py-4 text-gray-500">Belum ada data transaksi.</td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+        <!-- Responsif table container -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow rounded-lg text-sm">
+                <thead>
+                    <tr class="bg-blue-100 text-gray-700">
+                        <th class="border px-4 py-2">No</th>
+                        <th class="border px-4 py-2">ID Transaksi</th>
+                        <th class="border px-4 py-2">ID Anggota</th>
+                        <th class="border px-4 py-2">ID Buku</th>
+                        <th class="border px-4 py-2">Tanggal Peminjaman</th>
+                        <th class="border px-4 py-2">Tanggal Pengembalian</th>
+                        <th class="border px-4 py-2">Opsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($transaksis as $index => $transaksi)
+                    <tr class="border hover:bg-gray-50">
+                        <td class="border px-4 py-2 text-center">{{ $index + 1 }}</td>
+                        <td class="border px-4 py-2">{{ $transaksi->id }}</td>
+                        <td class="border px-4 py-2">{{ $transaksi->anggota_id }}</td>
+                        <td class="border px-4 py-2">{{ $transaksi->buku_id }}</td>
+                        <td class="border px-4 py-2">{{ $transaksi->tgl_pinjam }}</td>
+                        <td class="border px-4 py-2">{{ $transaksi->tgl_kembali }}</td>
+                        <td class="border px-4 py-2">
+                            <div class="flex flex-col sm:flex-row justify-center gap-2">
+                                <!-- Edit Button -->
+                                <a href="/transaksi/{{ $transaksi->id }}/edit" 
+                                   class="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500 transition-all text-sm">
+                                    Edit
+                                </a>
+                                <!-- Delete Button -->
+                                <form action="/transaksi/{{ $transaksi->id }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-all text-sm">
+                                        Hapus
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="7" class="text-center py-4 text-gray-500">Belum ada data transaksi.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
-    </div>
-    
 </section>
 @endsection
