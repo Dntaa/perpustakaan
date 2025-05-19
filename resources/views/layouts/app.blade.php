@@ -34,9 +34,6 @@
                     <li>
                         <a href="/transaksi" class="block px-4 py-2 rounded hover:bg-indigo-600 transition">🔄 Transaksi</a>
                     </li>
-                    <li>
-                        <a href="/transaksi" class="block px-4 py-2 rounded hover:bg-indigo-600 transition">📄 Laporan</a>
-                    </li>
                 </ul>
             </nav>
             <footer class="mt-10 text-xs text-indigo-200">
