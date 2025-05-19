@@ -15,7 +15,7 @@
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Navbar Mobile -->
-  <header class="bg-indigo-700 text-white flex items-center justify-between px-4 py-3 md:hidden">
+  <header class="bg-gray-700 text-white flex items-center justify-between px-4 py-3 md:hidden">
     <div class="flex items-center space-x-2">
       <img src="{{ asset('img/1.png') }}" alt="Logo" class="w-8 h-9" />
       <span class="font-bold text-lg">Perpustakaan</span>
