@@ -31,7 +31,7 @@
   <div class="flex min-h-screen">
     <!-- Sidebar -->
     <aside id="sidebar"
-      class="fixed inset-y-0 left-0 z-50 w-64 bg-indigo-700 text-white p-6 transform -translate-x-full transition-transform duration-200 ease-in-out md:relative md:translate-x-0 md:flex md:flex-col">
+      class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-700 text-white p-6 transform -translate-x-full transition-transform duration-200 ease-in-out md:relative md:translate-x-0 md:flex md:flex-col">
       <div class="mb-10 flex flex-col items-center">
         <img src="{{ asset('img/1.png') }}" alt="Logo" class="w-10 h-11 mb-4" />
         <h1 class="text-2xl font-bold">Perpustakaan</h1>
