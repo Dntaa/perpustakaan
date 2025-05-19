@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Buku;
 use App\Models\Anggota;
 use App\Models\Transaksi;
+use App\Http\Controllers\HomeController;
 
 // login
 
@@ -30,13 +31,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Beranda
-Route::get('/beranda', function () {
-    $jumlahBuku = Buku::count();
-    $jumlahAnggota = Anggota::count();
-    $jumlahTransaksi = Transaksi::count();
-
-    return view('beranda', compact('jumlahBuku', 'jumlahAnggota', 'jumlahTransaksi'));
-})->middleware('auth')->name('beranda');
+Route::get('/', function () {
+    return view('auth.login');
+});
+Route::get('/beranda', [HomeController::class, 'index'])->middleware('auth')->name('beranda');
 
 // Buku
 Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
