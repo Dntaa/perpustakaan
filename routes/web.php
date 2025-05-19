@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\TransaksiController;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Buku;
 use App\Models\Anggota;
 use App\Models\Transaksi;
@@ -19,6 +20,14 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 Route::get('/dashboard', function () {
     return view('beranda');
 })->middleware('auth')->name('dashboard');
+
+// logout
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 // Beranda
 Route::get('/', function () {

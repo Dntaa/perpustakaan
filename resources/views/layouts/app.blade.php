@@ -34,6 +34,12 @@
                     <li>
                         <a href="/transaksi" class="block px-4 py-2 rounded hover:bg-indigo-600 transition">🔄 Transaksi</a>
                     </li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                            <button type="submit" class="text-red-500">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
             <footer class="mt-10 text-xs text-indigo-200">
