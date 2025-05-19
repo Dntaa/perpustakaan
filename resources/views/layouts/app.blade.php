@@ -61,7 +61,8 @@
         </aside>
 
         <!-- Konten Utama -->
-        <main class="flex-1 bg-white p-8 shadow-inner mt-16 md:mt-0 md:ml-64">
+        <main class="flex-1 bg-white p-8 shadow-inner mt-16 md:mt-0 md:pl-64">
+
             @yield('content')
         </main>
     </div>
