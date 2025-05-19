@@ -35,7 +35,7 @@
                         <a href="/transaksi" class="block px-4 py-2 rounded hover:bg-indigo-600 transition">🔄 Transaksi</a>
                     </li>
                     <li>
-                        <form action="{{ route('logout') }}" method="POST">
+                        <form action="{{ route('logout') }}" method="POST" class="flex gap-3">
                         @csrf
                             <button type="submit" class="block px-4 py-2 rounded hover:bg-indigo-600 transition">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
