@@ -17,9 +17,9 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->m
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/beranda', function () {
+Route::get('/dashboard', function () {
     return view('beranda');
-})->middleware('auth')->name('beranda');
+})->middleware('auth')->name('dashboard');
 
 // logout
 Route::post('/logout', function () {
